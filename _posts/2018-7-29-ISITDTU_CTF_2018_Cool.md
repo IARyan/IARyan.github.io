@@ -14,7 +14,7 @@ I started this challenge by running the binary to see what it prints on stdout a
 The challenge looked like a standard reverse engineering challenge that takes some user input then determines if its correct by checking the input against something in the binary. After reviewing the logic of the binary in IDA Pro, I determined that it performs four total checks:
   1.	Checks that the input string is 28 characters long.
   2.	Checks the first 12 characters against saved md5 hashes 4 characters at a time.
-  3.	Checks the 13th character is 0x21 (‘!’ aka ascii).
+  3.	Checks the 13th character is 0x21 (‘!’ in ascii).
   4.	Checks the remaining characters against an array of known feedback xor bytes.
 
 Passing the first check was very easy, one just needs to make sure the input string is 28 characters. The second check can be passed using google to get the string that generates the saved md5 hashes.
