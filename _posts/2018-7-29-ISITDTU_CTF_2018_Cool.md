@@ -11,7 +11,7 @@ I started this challenge by running the binary to see what it prints on stdout a
 |---|
 |![Execute Binary](/images/ISITDTU/cool/cool_run.png)|
 
-The challenge looked like a standard reverse engineering challenge that takes some input then determines if its correct by checking against something in the binary. After opening the binary in IDA Pro, I determined that it performs four total checks:
+The challenge looked like a standard reverse engineering challenge that takes some user input then determines if its correct by checking the input against something in the binary. After reviewing the logic of the binary in IDA Pro, I determined that it performs four total checks:
   1.	Checks that the input string is 28 characters long.
   2.	Checks the first 12 characters against md5 hashes 4 characters at a time.
   3.	Checks the 13th character is 0x21 (‘!’ aka ascii).
