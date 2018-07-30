@@ -7,6 +7,10 @@ title: ISITDTU CTF 2018 Cool Writeup
 
 I started this challenge by running the binary to see what it prints on stdout and is expecting on stdin.
 
+| Executing Cool Binary |
+|---|
+|![Execute Binary](/images/ISITDTU/cool/cool_run.png)|
+
 It looked like a standard reverse engineering challenge that takes some input then determines if its correct by checking against something in the binary. After opening the binary in IDA Pro, I determined that it performs four total checks:
   1.	Checks that the input string is 28 characters long.
   2.	Checks the first 12 characters against md5 hashes 4 characters at a time.
@@ -14,6 +18,14 @@ It looked like a standard reverse engineering challenge that takes some input th
   4.	Checks the remaining characters against an array of known feedback xor bytes.
 
 Passing the first check was very easy, one just needs to make sure the input string is 28 characters. The second check can be passed using google to get the string that generates the md5 hashes.
+
+| Length and MD5 Checks in IDA Pro |
+|---|
+|![Length and MD5 Checks in IDA Pro](/images/ISITDTU/cool/cool_strlen_md5.png)|
+
+| MD5 Cracked Strings |
+|---|
+|![MD5 Cracked Strings](/images/ISITDTU/cool/cool_hashes.png)|
 
 The third check is passed by adding a ‘!’ to the current input string. Making the first 13 characters of the input string: “fl4g_i5_h3r3!”. 
 
@@ -51,3 +63,6 @@ def find_solution():
   return solution
 ```
 After running the binary against the solution code, the flag was determined and submitted to score 100 points.
+
+
+Challenge binary and solution script can be found here: [https://github.com/IARyan/CTFSolutions/tree/master/2018/ISITDTU](https://github.com/IARyan/CTFSolutions/tree/master/2018/ISITDTU)
