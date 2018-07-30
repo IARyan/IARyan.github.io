@@ -15,7 +15,7 @@ The challenge looked like a standard reverse engineering challenge that takes so
   1.	Checks that the input string is 28 characters long.
   2.	Checks the first 12 characters against saved md5 hashes 4 characters at a time.
   3.	Checks the 13th character is 0x21 (‘!’ in ascii).
-  4.	Checks the remaining characters against an array of known feedback xor bytes.
+  4.	Checks the remaining characters feedback xor byte against an array of known feedback xor bytes.
 
 Passing the first check was very easy, one just needs to make sure the input string is 28 characters. The second check can be passed using google to get the string that generates the saved md5 hashes.
 
