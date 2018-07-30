@@ -29,7 +29,11 @@ Passing the first check was very easy, one just needs to make sure the input str
 
 The third check is passed by adding a ‘!’ to the current input string. Making the first 13 characters of the input string: “fl4g_i5_h3r3!”. 
 
-To pass the fourth check some reversing was required after looking at the binary in IDA Pro it was determined that a running feedback xor byte is used to verify if the input string is correct. Where the first 13 characters are xor against each other to produce one a single running check byte. The final 15 characters are xor against the running check byte then checked against an array of known feedback xor bytes to verify the solution is correct. Python source code that emulates this process can be found below:
+| "!" Check in IDA Pro |
+|---|
+|!["!" Check in IDA Pro](/images/ISITDTU/cool/cool_13_char.png)|
+
+To pass the fourth check some reversing was required. After looking at the binary in IDA Pro it was determined that a running feedback xor byte is used to verify if the input string is correct. The first 13 characters are xor against the previous xor output byte to produce one a single running check byte. The final 15 characters are xor against the running check byte then checked against an array of known feedback xor bytes to verify the solution is correct. Python source code that emulates this process can be found below:
 ```python
 def find_solution():
   """
@@ -64,5 +68,8 @@ def find_solution():
 ```
 After running the binary against the solution code, the flag was determined and submitted to score 100 points.
 
+| Flag |
+|---|
+|![Flag](/images/ISITDTU/cool/cool_flag.png)|
 
 Challenge binary and solution script can be found here: [https://github.com/IARyan/CTFSolutions/tree/master/2018/ISITDTU](https://github.com/IARyan/CTFSolutions/tree/master/2018/ISITDTU)
