@@ -5,7 +5,7 @@ layout: post
 title: ISITDTU CTF 2018 Cool Writeup
 ---
 
-I started this challenge by running the binary to see what it prints on stdout and is expecting on stdin.
+I started this challenge by running the binary to see what it prints on stdout and what it is expecting on stdin.
 
 | Executing Cool Binary |
 |---|
